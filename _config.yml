@@ -1,0 +1,42 @@
+# top level stuff you probably don't need to touch
+highlighter: rouge
+markdown: kramdown
+rdiscount:
+  extensions: [smart]
+permalink: /:title.html
+paginate: 5
+gems: [jekyll-paginate]
+port: 4000
+safe: true
+
+
+# edit here to achieve your personal greatness
+url: https://donghwa-kim.github.io 
+baseurl: "" 
+title: DH.Kim
+author: Donghwa KIM
+name: Donghwa KIM
+description: Personal blog and resume
+avatar: profile.png
+email: donghwa89@korea.ac.kr
+github: Donghwa-KIM
+linkedin: donghwa-kim-3bb705138
+stackoverflow: users/story/8972465    #e.g: users/2735833/proton1h1
+#Comment out if you don't want disqus 
+disqus: donghwa-kim-github-io-2
+tel: +44 0000 000000
+tel_full: tel:+440000000000
+google_maps: https://www.google.co.kr/maps/place/Korea+University/@37.5908032,127.025594,17z/data=!3m1!4b1!4m5!3m4!1s0x357cbcbc8d707a77:0x15038aa80b575dc9!8m2!3d37.590799!4d127.0277773?hl=en
+address:
+  street: 145 Anam-ro
+  postcode: 02841
+  city: Seoul
+  country: Korea
+google_analytics: UA-110082284-1
+
+
+
+# needed for travis-ci build
+exclude: [vendor]
+
+

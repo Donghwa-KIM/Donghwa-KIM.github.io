@@ -1,0 +1,29 @@
+<nav class="navbar navbar-default">
+  <div class="container">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="{{ site.baseurl }}index.html"><i class="fa fa-home"></i></a>
+    </div>
+    <div id="navbar">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="{{ site.baseurl }}blog.html">BLOG</a></li>
+        <li><a href="{{ site.baseurl }}projects.html">PROJECTS</a></li>
+        <li><a href="{{ site.baseurl }}CV.html">RESUME</a></li>
+          <script type="text/x-mathjax-config">
+            MathJax.Hub.Config({
+              extensions: ["tex2jax.js"],
+              jax: ["input/TeX", "output/HTML-CSS"],
+              tex2jax: {
+                inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+                displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+                processEscapes: true
+              },
+              "HTML-CSS": { availableFonts: ["TeX"] }
+            });
+          </script>
+          <script type="text/javascript" src="path-to-MathJax/MathJax.js">
+          </script>
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML'></script>
+      </ul>
+    </div>
+  </div>
+</nav>
