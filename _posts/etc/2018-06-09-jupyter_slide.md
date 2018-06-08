@@ -22,21 +22,21 @@ donghwa@DESKTOP-L9A4HBN MINGW64 ~/Downloads/presentation (master) git clone http
 2) 기본 CMD를 다시열어 그 clone한 폴더안에 ipynb를 생성 e.g. 이 글에서는 ```ppt.ipynb```이라는 이름을 가진 파일 생성 
 - 아래의 같이 컨텐츠를 구성하였음
 - 위 쪽 상단에 View >> Cell Toolbar >> Slideshow 체크
-- Slide Type 설정
+- Slide Type 설정ㄴ
 - 저장
 <p align="center"><img width="700" height="auto" src='https://i.imgur.com/gDpWWJS.png'></p>
 <br>
 3) jupyter_contrib_nbextensions를 설치 
 
 ```bash
-C:\Users\donghwa\Downloads\presentation> pip install jupyter_contrib_nbextensions
+C:/Users/donghwa/Downloads/presentation> pip install jupyter_contrib_nbextensions
 ```
 <br>
 4) 슬라이드 생성 
 - 아래의 코드를 슬라이드화 하고 싶은 파일을 입력 ```ppt.ipynb```
 
 ```bash
-C:\Users\donghwa\Downloads\presentation> jupyter-nbconvert --to slides ppt.ipynb --reveal-prefix=reveal.js
+C:/Users/donghwa/Downloads/presentation> jupyter-nbconvert --to slides ppt.ipynb --reveal-prefix=reveal.js
 ```
 - 실행 후 아래의 그림과 같이 html파일이 생성이 됨
 <p align="center"><img width="700" height="auto" src='https://i.imgur.com/19yfI3y.png'></p>
