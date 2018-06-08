@@ -179,7 +179,7 @@ subreddit = example['subreddit']
 
 ```python
 def find_parent(pid):
-    try:옴
+    try:
         # LIMIT 1 : 출력되는 데이터들의 첫번째 행을 가져옴
         sql = "SELECT comment FROM question_answer WHERE comment_id = '{}' LIMIT 1".format(pid)
         c.execute(sql)
