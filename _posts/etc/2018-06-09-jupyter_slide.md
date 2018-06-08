@@ -10,7 +10,7 @@ tags:
 
 **<span style='color:DarkRed'>Jupyter Notebook를 PPT Slide처럼 사용하기</span>**
 
-- html의 형태로 슬라이드 뽑아내는 방법이다. 
+- html의 형태로 슬라이드를 뽑아내는 방법이다. 
 
 1) 파일형식을 바꿔주는 git를 다운로드(Window일 경우 git CMD를 설치) ```https://github.com/hakimel/reveal.js.git``` 
 
