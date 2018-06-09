@@ -22,7 +22,7 @@ donghwa@DESKTOP-L9A4HBN MINGW64 ~/Downloads/presentation (master) git clone http
 2) 기본 CMD를 다시열어 그 clone한 폴더안에 ipynb를 생성 e.g. 이 글에서는 ```ppt.ipynb```이라는 이름을 가진 파일 생성 
 - 아래의 같이 컨텐츠를 구성하였음
 - 위 쪽 상단에 View >> Cell Toolbar >> Slideshow 체크
-- Slide Type 설정ㄴ
+- Slide Type 설정
 - 저장
 <p align="center"><img width="700" height="auto" src='https://i.imgur.com/gDpWWJS.png'></p>
 <br>
