@@ -44,5 +44,9 @@ C:/Users/donghwa/Downloads/presentation> jupyter-nbconvert --to slides ppt.ipynb
 <br>
 5) 사용화면
 - 완성된 html를 다른 폴더에서 실행하면 애니메이션 작동되지 않는다. git clone한 folder(e.g. ```C:\Users\donghwa\Downloads\presentation```)에서만 실행해야된다는 것을 잊지말자.
-<p align="center"><iframe src="https://i.imgur.com/C27Y4yK.mp4" width="600" height="338" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></p>
 
+<p align="center"><video width="700" height="auto" controls="controls">
+  <source src="https://i.imgur.com/C27Y4yK.mp4" type="video/mp4" />
+  Your browser does not support the video tag.
+  /* instead of the last line you could also add the flash player*/
+</video></p>
