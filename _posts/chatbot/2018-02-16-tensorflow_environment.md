@@ -16,26 +16,26 @@ tags:
 
 
 **<span style='color:DarkRed'>Nvidia graphic driver</span>**
->우분투를 설치하고 나면 그래픽 드라이버를 잡고, ```CUDA-> cuDNN-> tensorflow ```순서로 잘 설치 했는데도, 그래픽 kernel문제로 tensorflow-gpu가 안잡히는 경우가 있다. 이 글에서는 ```시스템설정 >> 소프트웨어 & 업데이트 >> 추가 드라이버```에서 ```사용 NVIDA binary driver - version 384.111 출처 nvidia-384 (독점)```을 설치 하여 그래픽 카드를 잡고 CUDA 8.0설치 때 deb 대신 runfile를 사용해 CUDA 8과 nvidia-384가 충돌이 나지 않게 하였다. 
+>우분투를 설치하고 나면 그래픽 드라이버를 잡고, ```CUDA-> cuDNN-> tensorflow ```순서로 잘 설치 했는데도, 그래픽 kernel문제로 tensorflow-gpu가 안잡히는 경우가 있다. 이 글에서는 ```시스템설정 >> 소프트웨어 & 업데이트 >> 추가 드라이버```에서 ```사용 NVIDA binary driver - version 384.111 출처 nvidia-384 (독점)```을 설치 하여 그래픽 카드를 잡고 CUDA 9.0설치 때 deb 대신 runfile를 사용해 CUDA 9과 nvidia-384가 충돌이 나지 않게 하였다. 
 
 <p align="center"><img width="500" height="auto" src="https://i.imgur.com/zL1niQ7.png"></p>
 
 <br>
 
-**<span style='color:DarkRed'>CUDA 8.0 설치</span>**
+**<span style='color:DarkRed'>CUDA 9.0 설치</span>**
 
-- https://developer.nvidia.com/cuda-downloads 에서 CUDA 8.0을 다운받아 설치
+- https://developer.nvidia.com/cuda-downloads 에서 CUDA 9.0을 다운받아 설치
 <p align="center"><img width="500" height="auto" src="https://i.imgur.com/vjpPBHE.png"></p>
 
 ```bash
 ~$ cd Downloads/
-~/Downloads/$ sudo sh cuda_8.0.61_375.26_linux.run
+~/Downloads/$ sudo sh cuda_9.0.176_384.81_linux.run
 ```
 <br>
 
-**<span style='color:DarkRed'>CUDA 8.0 환경변수</span>**
+**<span style='color:DarkRed'>CUDA 9.0 환경변수</span>**
 
-- bashrc파일을 열어 CUDA 8.0의 환경변수를 설정
+- bashrc파일을 열어 CUDA 9.0의 환경변수를 설정
 
 ```bash
 ~$ sudo gedit ~/.bashrc
@@ -44,11 +44,11 @@ tags:
 - bashrc에 붙여지는 내용
 
 ```bash
-export CUDA_HOME=/usr/local/cuda-8.0
+export CUDA_HOME=/usr/local/cuda-9.0
 
-export PATH=/usr/local/cuda-8.0/bin${PATH:+:${PATH}}
+export PATH=/usr/local/cuda-9.0/bin${PATH:+:${PATH}}
 
-export LD_LIBRARY_PATH=/usr/local/cuda-8.0/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
+export LD_LIBRARY_PATH=/usr/local/cuda-9.0/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
 ```
 
 - 변경사항 적용
@@ -61,14 +61,20 @@ export LD_LIBRARY_PATH=/usr/local/cuda-8.0/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY
 
 **<span style='color:DarkRed'>Cudnn 설치</span>**
 
-> https://developer.nvidia.com/cudnn 에서 해당 운영체제에 맞는 버전을 받으면 된다. 하지만 Tensorflow v1.3이상부터 cuDNN 6.0과 호환이 되므로 본 저자는 cuDNN 6.0을 설치하였다.
+> https://developer.nvidia.com/cudnn 에서 해당 운영체제에 맞는 버전을 받으면 된다. 하지만 Tensorflow v1.8이상부터 cuDNN 7.0과 호환이 되므로 본 저자는 cuDNN 7.0을 설치하였다.
 - Tensorflow v1.3 미만 : CUDA 8, cuDNN 5.1 버전
-- Tensorflow v1.3 부터 : CUDA 8, cuDNN 6 버전 (2017.08년 기준)
+- Tensorflow v1.3 부터 : CUDA 8, cuDNN 6 버전 (2017.08월 기준)
+- Tensorflow v1.8 부터 : CUDA 9.0, cuDNN 7 버전 (2018.06월 기준)\\
+> 아래 그림에서 ```cuDNN v7.1.4 Library for Linux```을 다운로드한다. tensorflow version 1.8을 위해 cuda-9.0을 설정했으니, 이에 대응하는 cudnn 7.1을 받는 것이다. 
 
+<p align="center"><img width="700" height="auto" src="https://i.imgur.com/0lVV0Ws.png"></p>
+
+<br>
 ```bash
 ~$ cd Downloads
-~/Downloads/$ sudo tar -xzvf cudnn-8.0-linux-x64-v6.0.tgz
+~/Downloads/$ sudo tar -xzvf cudnn-9.0-linux-x64-v7.1.tgz
 ```
+
 - cuDNN 파일 이동 및 환경변수 추가
 
 ```bash
