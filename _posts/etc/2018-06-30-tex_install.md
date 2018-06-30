@@ -32,7 +32,7 @@ tags:
 
 - 설치 및 실행방법은 다음과 같다.
 
-```bash깔
+```bash
 :~$  sudo apt-get install texmaker
 :~$  texmaker
 ```
