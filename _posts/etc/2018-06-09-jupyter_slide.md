@@ -1,22 +1,23 @@
 ---
 layout: post
 comments: true
-title:  Jupyter Slide
+title:  프리젠테이션을 위한 Jupyter Slide
 categories: Jupyter
 
 tags:
-- Jupyter
+- etc.
 ---
 
 **<span style='color:DarkRed'>Jupyter Notebook를 PPT Slide처럼 사용하기</span>**
 
 - html의 형태로 슬라이드를 뽑아내는 방법이다. 
-
+을
 1) 파일형식을 바꿔주는 git를 다운로드(Window일 경우 git CMD를 설치) ```https://github.com/hakimel/reveal.js.git``` 
 
 ```bash
 donghwa@DESKTOP-L9A4HBN MINGW64 ~/Downloads/presentation (master) git clone https://github.com/hakimel/reveal.js.git
 ```
+
 <br>
 
 2) 기본 CMD를 다시열어 그 clone한 폴더안에 ipynb를 생성 e.g. 이 글에서는 ```ppt.ipynb```이라는 이름을 가진 파일 생성 
@@ -31,6 +32,7 @@ donghwa@DESKTOP-L9A4HBN MINGW64 ~/Downloads/presentation (master) git clone http
 ```bash
 C:/Users/donghwa/Downloads/presentation> pip install jupyter_contrib_nbextensions
 ```
+
 <br>
 4) 슬라이드 생성 
 - 아래의 코드를 슬라이드화 하고 싶은 파일을 입력 ```ppt.ipynb```
@@ -38,6 +40,7 @@ C:/Users/donghwa/Downloads/presentation> pip install jupyter_contrib_nbextension
 ```bash
 C:/Users/donghwa/Downloads/presentation> jupyter-nbconvert --to slides ppt.ipynb --reveal-prefix=reveal.js
 ```
+
 - 실행 후 아래의 그림과 같이 html파일이 생성이 됨
 <p align="center"><img width="700" height="auto" src='https://i.imgur.com/19yfI3y.png'></p>
 
