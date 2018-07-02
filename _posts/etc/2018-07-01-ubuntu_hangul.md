@@ -51,4 +51,9 @@ Step2) 전체 키설정 켜기/끄기 편집 및 제거
 Step3) 한글 키 설정
 <p align="center"><img width="500" height="auto" src='https://imgur.com/Fw5aklS.png'></p>
 
+- 구체적으로, 아래의 그림을 예시로 ```키:```에 커서를 대고 ```오른쪽 Alt```를 누르면 ```hangul```이라는 것이 생성이되며 ```추가(A)```를 눌러서 완료시킨다. 
+
+<p align="center"><img width="200" height="auto" src='https://imgur.com/TdaiRyp.png'></p>
+<br>
+
 - 이제 ```오른쪽 alt```키로 한영 변환을 할 수 있다.
