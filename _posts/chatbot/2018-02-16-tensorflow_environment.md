@@ -146,7 +146,7 @@ export LD_LIBRARY_PATH=/usr/local/cuda-9.0/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY
 
 ```bash
 # command in Pycharm 
-(tensorflow) ~$ sudo ldconfig /usr/local/cuda-8.0/lib64
+(tensorflow) ~$ sudo ldconfig /usr/local/cuda-9.0/lib64
 ```
 
 <br>

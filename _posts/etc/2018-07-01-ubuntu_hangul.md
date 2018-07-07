@@ -35,6 +35,8 @@ tags:
 ```
 
 
+
+
 - 검색에서 ```uim```을 입력해 uim 입력기를 실행시킨다.
 - 아래의 순서대로 설정을 변경해 주자
 
@@ -55,5 +57,28 @@ Step3) 한글 키 설정
 
 <p align="center"><img width="200" height="auto" src='https://imgur.com/TdaiRyp.png'></p>
 <br>
+
+
+**<span style='color:DarkRed'> Alt_R을 Hangul로 바꾸기</span>**
+
+- 아래의 ```altwin```을 열어서 ```alt_R```을 ```Hangul```로 변경한다.
+
+```bash
+:~$ cd /usr/share/X11/xkb/symbols/
+:~$ sudo gedit altwin 
+```
+
+
+```gedit
+// Meta is mapped to second level of Alt keys.
+partial modifier_keys
+xkb_symbols "meta_alt" {
+    key <LALT> { [ Alt_L, Meta_L ] };
+    key <RALT> { type[Group1] = "TWO_LEVEL",
+                 symbols[Group1] = [ Hangul ] };
+    modifier_map Mod1 { Alt_L, Alt_R, Meta_L, Meta_R };
+//  modifier_map Mod4 {};
+};
+```
 
 - 이제 ```오른쪽 alt```키로 한영 변환을 할 수 있다.
