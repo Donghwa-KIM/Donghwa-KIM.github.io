@@ -8,7 +8,7 @@ tags:
 - Convolutional Neural Nets for Text
 ---
 
-본 [논문](_site/assets/cnn)은 max pooling을 layer별로 다이나믹하게 조절하므로써, varied input sequence를 더 잘 표현 하는 descriptors를 설명하고 있다.
+본 <a href="https://arxiv.org/pdf/1404.2188.pdf">논문</a>은 max pooling을 layer별로 다이나믹하게 조절하므로써, varied input sequence를 더 잘 표현 하는 descriptors를 설명하고 있다.
 
 <br>
 
