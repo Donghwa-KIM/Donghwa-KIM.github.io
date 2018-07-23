@@ -8,7 +8,7 @@ tags:
 - Convolutional Neural Nets for Text
 ---
 
-본 논문은 max pooling을 layer별로 다이나믹하게 조절하므로써, varied input sequence를 효과적으로 표현한 decriptior를 설명하고 있다.
+본 논문은 max pooling을 layer별로 다이나믹하게 조절하므로써, varied input sequence를 효과적으로 표현한 descriptors를 설명하고 있다.
 <br>
 **<span style='color:DarkRed'>Time-Delay Neural Networks</span>**
 
@@ -71,4 +71,4 @@ $L$은 총 layer의 갯수를 의미하며, $l$: 현재 layer가 몇번째인지
 > 4. 다시 전보다 작은 2개의 필터($4 \times 2$)를 사용하여 wide convolve를 한다.
 > 5. (2번째 $k$-max pooling 전에) Folding이란 반으로 접는것을 의미하며 convolve 반대 반향으로 2개씩 더 해준다. 아웃풋들의 계산과정이 각 row별과 진행되어왔는데, 다른 row들 사이의 dependency를 고려하기 위해 stride와 수직방향으로 2개씩 더 해줘 아웃풋의 사이즈를 절반으로 만든다. (반으로 종이접기를 하는것과 유사)
 > 6. $k$-max pooling을 적용해 총 아웃풋$2 \times 6$가 2개가 형성된다. 
-> 7. $2 \times 6 \times 2 = 24$개의 feature description을 입력으로 full-connected layer를 구성해 클래스를 분류하는 모델을 만드는 구조이다.
+> 7. $2 \times 6 \times 2 = 24$개의 feature descriptors을 입력으로 full-connected layer를 구성해 클래스를 분류하는 모델을 만드는 구조이다.
