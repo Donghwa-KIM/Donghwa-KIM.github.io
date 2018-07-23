@@ -70,7 +70,8 @@ $L$은 총 layer의 갯수를 의미하며, $l$: 현재 layer가 몇번째인지
 > 1. 4차원으로 embedding된 word vector가 7개($s=7$)가 있다.
 > 2. 2개의 필터($4 \times 3$)를 input sequence에 convolve하면, 2개의 아웃풋의 길이는 $4 \times  (7+3-1) = 4 \times 9$이 된다.
 > 3. 그 아웃풋의 각 row에서 가장 높은 값 $k$개를 단어순서대로 가져온다, 그리고 non-linear함수를 각 element에 씌워준다(activation).
-> 4. 다시 전보다 작은 2개의 필터($4 \times 2$)를 사용하여 wide convolve를 한다.
+> 4. 다시 전보다 작은 2개의 필터($4 \times 2$)를 사용하여 wide convolve를 한다. 또한 특정 순서들을 잘 학습하기 위해 각 feature map과 각 filter들의 linear summation을 취하게 된다.
+> $$ \mathbf{F}^{i}_{j} = \sum_{k=1}^{n}\mathbf{m}^{i}_{j,k}(filter) \times \mathbf{F}^{i-1}_{k}(feature \ map)$$
 > 5. (2번째 $k$-max pooling 전에) Folding이란 반으로 접는것을 의미하며 convolve 반대 반향으로 2개씩 더 해준다. 아웃풋들의 계산과정이 각 row별과 진행되어왔는데, 다른 row들 사이의 dependency를 고려하기 위해 stride와 수직방향으로 2개씩 더 해줘 아웃풋의 사이즈를 절반으로 만든다. (반으로 종이접기를 하는것과 유사)
-> 6. $k$-max pooling을 적용해 총 아웃풋$2 \times 6$가 2개가 형성된다. 
+> 6. $k$-max pooling >> activation을 적용해 총 아웃풋$2 \times 6$가 2개가 형성된다. 
 > 7. $2 \times 6 \times 2 = 24$개의 feature descriptors을 입력으로 full-connected layer를 구성해 클래스를 분류할 수 있다.
