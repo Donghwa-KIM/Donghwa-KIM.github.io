@@ -1,0 +1,86 @@
+#----------------------------
+markov chain
+t: time
+state: discrete or continuous (i,j)
+transition: 확률 (linear operator)
+
+#----------------------------
+markov chain process
+
+\mu state p
+\psi +action: p
+\t : transition (3D tensor) given (next state $i$, current state $j$, action $k$)
+\sum \mu \psi \t
+
+#----------------------------
+partially observed markov chain process
+State space
+Action space
+observation space (s-> o) e.g. image pixel
+transition operator
+
+ex)
+\mu state
+\psi +action:
+\t : transition (3D tensor) given (next state $i$, current state $j$, action $k$)
+\epsilon p(s-> o) emission prob
+r \in S x A
+#----------------------------
+
+\pi_{\theta}: S->A (\theta: params)
+P(s^{'}|s,a)
+
+
+#----------------------------
+\tau : (s_t,..., a_t)
+
+기대값은 선형이래서 부분적으로 고려해보자.
+p(s_t, a_t): state-action marginal
+
+
+infinite and \mu(state 확률/분포) stationary
+
+\mu = \T \mu
+
+\mu is eigen vector of T, eigen value 1(predifined, right thing)
+
+exist, regular coditions
+
+if infinite then not being t (시작점, 처음부분과 의존적이지 않음)
+
+distribution, not state
+#-------------------------------------
+
+finite: sum over t
+infinite: not t
+
+reward: not smooth
+expectation for smooth
+
+#------------------------------------------
+
+
+Algo
+
+
+simulation(generate samples; run the policy) -> fit the model(MC policy, ac Q-learning) -> improve policy(optimization)
+
+policy = 함수 \pi(s) = a 
+
+
+#---------------------------------------------------
+
+
+Q-function: total reward taking a_t in  s_t (action)
+value- function: total reward from s_t (state)
+
+#-------------------
+
+
+policy gradients: 목적함수에 대해서 직접 미분
+value-based: value-function, Q-function을 추정 (최적 policy) (대강)
+Actor-critic: value-function, Q-function을 추정 (현재 policy) -> (최적 policy)
+model-based RL: 1)transition model 2)optimization(Monte carlo tree search)
+
+샘플추가 on policy(시간마다 policy가 달라짐): 
+샘플미첨가 off policy:
