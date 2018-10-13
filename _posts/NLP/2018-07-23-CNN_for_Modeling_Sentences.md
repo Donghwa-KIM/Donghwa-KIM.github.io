@@ -2,10 +2,11 @@
 layout: post
 comments: true
 title: Modeling Sentences
-categories: Convolutional Neural Nets for Text
+categories: NLP
 
 tags:
-- Convolutional Neural Nets for Text
+- CNN
+- NLP
 ---
 
 본 <a href="https://arxiv.org/pdf/1404.2188.pdf">논문</a>은 wide convolution을 사용하고, max pooling을 layer별로 다이나믹하게 조절하므로써, varied input sequence를 더 잘 표현 하는 descriptors를 설명하고 있다.
