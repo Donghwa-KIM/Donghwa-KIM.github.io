@@ -10,25 +10,23 @@ tags:
 **<span style='color:DarkRed'>Gamma function</span>**
 
 - Gamma function은 factorial function의 확장으로 smooth한 커브를 찾는 특징이 있다.
-- $n$이 양의 정수일때, 
-	- $\Gamma(n) = (n-1)!$
-- $n$(on x-axis)이 complex number일때, 아래와 같은 그림으로 표현된다.
 
 $$\Gamma(n) = \int^{ \infty}_{0}x^{n-1}e^{-x}dx$$
 
-<p align="center"><img width="400" height="auto" src="https://imgur.com/CCbU832.png"></p>
+- $n$이 양의 정수일때, $\Gamma(n) = (n-1)!$이 성립하며, **fatorial의 일반화**한 것으로 생각할 수 있다.
 
 <br>
 
 
 **<span style='color:DarkRed'>Beta function</span>**
 
+- Beta function은 gamma function의 비율($B(x,y) = \frac{\Gamma(x)\Gamma(y)}{\Gamma(x+y)}$
+)로 표현되는 2변량$(x,y)$ 함수 이다.
+
 $$ B(x,y) = \int^{1}_{0} t^{x-1}(1-t)^{y-1}dt$$
 
-- 2개의 인자(x,y)로 beta function 값이 아래와 같이 표현된다.
-	- [0,1]에서 (x,y)가 symmetric하게 작아지면 양 끝부분의 확률이 높아진다.
-	- [0,1]에서 (x,y)가 symmetric하게 커지면 가우시안 분포처럼, 가운데 부분의 확률이 커진다.
-	<p align="center"><img width="350" height="auto" src="https://imgur.com/dpeINC3.png"></p>
+- 앞선 설명된 감마함수가 factorial의 일반화 였다면, ${n\choose k} = \frac{1}{(n+1)B(n-k+1,k+1)}$의 관계식이 성립하므로 베타함수는 **이항계수의 일반화**로 생각할 수 있다.
+
 
 <br>
 
@@ -67,6 +65,8 @@ $$ \therefore B(x,y) = \frac{\Gamma(x)\Gamma(y)}{\Gamma(x+y)}$$
 <br>
 
 **<span style='color:DarkRed'> Multivariate beta function </span>**
+- 위에서 2개인자를 가진 beta함수에 대해서 살펴보았다
+- 더 많은 인자를 가질 때 어떻게 될까?
 - 2개이상의 인자, 즉 다변량 인자를 가질 경우 아래와 같은 성질을 가지며 Dirichlet distribution 정의이다.
 
 $$ Beta(\alpha_1,\alpha_2,\ldots\alpha_n) = \frac{\Gamma(\alpha_1)\,\Gamma(\alpha_2) \cdots \Gamma(\alpha_n)}{\Gamma(\alpha_1 + \alpha_2 + \cdots + \alpha_n)}$$
