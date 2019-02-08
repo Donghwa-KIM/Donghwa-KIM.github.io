@@ -958,7 +958,7 @@ class_map2
 <br>
 
 ---
-**<span style='color:DarkRed'> Visiualize</span>**
+**<span style='color:DarkRed'> Visualize</span>**
 
 
 
