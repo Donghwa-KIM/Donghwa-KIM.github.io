@@ -41,6 +41,7 @@ $$ \text{gradients}= \frac{\partial y_{label_i}}{\partial \text{ last conv layer
 
 - 전체 코드는 <a href="https://github.com/Donghwa-KIM/grad_CAM/blob/master/guided_grad_cam.ipynb">여기</a>에 참조되어 있다.
 
+
 ```python
 %matplotlib inline
 import matplotlib.pyplot as plt
@@ -543,7 +544,7 @@ with tf.variable_scope('fc1') as scope:
     fc1l = tf.nn.bias_add(tf.matmul(pool5_flat, fc_weights),
      fc_biases)
 
-    with graph.gradient_override_map({'Relu': 'BackpropRelu'}):
+    with graph.gradient_override_map({'Relu': 'GuidedRelu'}):
         fc1 = tf.nn.relu(fc1l)
 
     fc1 = tf.nn.dropout(fc1, keep_prob = 1.0) # option
@@ -578,7 +579,7 @@ with tf.variable_scope('fc2') as scope:
     fc2l = tf.nn.bias_add(tf.matmul(fc1, fc_weights), 
     	fc_biases)
 
-    with graph.gradient_override_map({'Relu': 'BackpropRelu'}):
+    with graph.gradient_override_map({'Relu': 'GuidedRelu'}):
         fc2 = tf.nn.relu(fc2l)
     fc2 = tf.nn.dropout(fc2, keep_prob = 1.0)
 ```
