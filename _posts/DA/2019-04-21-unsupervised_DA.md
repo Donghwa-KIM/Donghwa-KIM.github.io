@@ -17,10 +17,10 @@ tags:
 <p align="center"><img width="500" height="auto" src="https://i.imgur.com/BcCAeFw.png?1"></p>
 
 
-- 위 그림 같이, 예측하고자하는 label은 같지만, 그 source와 target domain이 다를 경우 label을 예측하는데에 있어서 방해될 수 있다. 
+- 위 그림 같이, 예측하고자하는 label은 같지만, 그 source와 target domain이 다를 경우 예측된 label은 domain에 의해서 상당히 다를 수 있다. 
 	- 딥러닝은 label-set이 많아야 잘 학습됨
 	- label이 많아도 실제(test)데이터와 다를 수 있음
-	- ```domain adaptation```을 사용하면 ```train```와 ```test```분포를 유사하게 학습할 수 있음
+	- ```domain adaptation```방법론을 사용하면 ```train```와 ```test```분포를 유사하게 학습할 수 있음
 
 <br>
 
