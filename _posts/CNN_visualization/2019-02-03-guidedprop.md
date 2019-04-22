@@ -203,7 +203,7 @@ def conv_layer(graph, inputs, name, stride = 1):
         conv = tf.nn.conv2d(inputs, conv_weights, [1,stride,stride,1], padding='SAME')
         bias = tf.nn.bias_add(conv, conv_biases)
         
-        with graph.gradient_override_map({'Relu': 'BackpropRelu'}):
+        with graph.gradient_override_map({'Relu': 'GuidedRelu'}):
             relu = tf.nn.relu(bias, name=name)
         
     return relu  
