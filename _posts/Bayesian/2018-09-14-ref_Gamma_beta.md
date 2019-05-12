@@ -2,9 +2,9 @@
 layout: post
 comments: true
 title: 감마함수(Gamma function) & 베타함수(Beta function)의 관계  
-categories: Bayesian Statistic(베이지안 통계)
+categories: Bayesian Statistics(베이지안 통계)
 tags:
-- Bayesian Statistic(베이지안 통계)
+- Bayesian Statistics(베이지안 통계)
 ---
 
 **<span style='color:DarkRed'>Gamma function</span>**
@@ -65,8 +65,10 @@ $$ \therefore B(x,y) = \frac{\Gamma(x)\Gamma(y)}{\Gamma(x+y)}$$
 <br>
 
 **<span style='color:DarkRed'> Multivariate beta function </span>**
-- 위에서 2개인자를 가진 beta함수에 대해서 살펴보았다
-- 더 많은 인자를 가질 때 어떻게 될까?
-- 2개이상의 인자, 즉 다변량 인자를 가질 경우 아래와 같은 성질을 가지며 Dirichlet distribution 정의이다.
+- 위에서 2개인자를 가진 ```beta함수```에 대해서 살펴보았다.
+- 더 많은 인자를 가질 때 ```beta함수```는 어떻게 될까?
+- 2개이상의 인자, 즉 다변량 인자를 가질 경우 아래와 같은 성질을 가진 ```beta 함수```라고 정의 할 수 있다.
 
-$$ Beta(\alpha_1,\alpha_2,\ldots\alpha_n) = \frac{\Gamma(\alpha_1)\,\Gamma(\alpha_2) \cdots \Gamma(\alpha_n)}{\Gamma(\alpha_1 + \alpha_2 + \cdots + \alpha_n)}$$
+$$ B(\alpha_1,\alpha_2,\ldots\alpha_n) = \frac{\Gamma(\alpha_1)\,\Gamma(\alpha_2) \cdots \Gamma(\alpha_n)}{\Gamma(\alpha_1 + \alpha_2 + \cdots + \alpha_n)}$$
+
+- Dirichlet distribution을 구할 때, 이 ```bete 함수```가 사용된다.
