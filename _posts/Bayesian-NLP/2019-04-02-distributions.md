@@ -74,7 +74,7 @@ tags:
 		- $\alpha_k$에 대하여, k개의 연속형 확률변수에 대응되는 k개의 continous values($x_k$, $\sum_k x_k =1, \forall x_k \geq 0$)들을 사용하여 분포를 표현
     - $k$=3이고, $\alpha_k$가 동일한(symmetry) $\alpha$로 변한다고 할때 아래와 같이 시각화 할 수 있다.
 
-<p align="center"><img width="400" height="auto" src="https://imgur.com/3n5MkK2.gif"></p>
+<p align="center"><img width="300" height="auto" src="https://imgur.com/3n5MkK2.gif"></p>
 
 
 - 위 성질을 이용하여, 좌변에는 단변량 ```random variable```속성을 가진 분포를 두고, 우변에는 다변량 ```random variable```속성을 가진 비례식을 세울 수 있습니다.
