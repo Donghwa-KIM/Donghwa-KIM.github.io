@@ -85,6 +85,17 @@ $$Binomial: Beta = Multinomial:Dirichlet$$
 
 **<span style='color:DarkRed'> Dirichlet distribtutions </span>**
 
+$$
+f(x_1, \cdots, x_k; \alpha_1, \cdots, \alpha_k) = \frac{1}{\mathrm{B}(\alpha)} \prod_{i=1}^k x_i ^{\alpha_i - 1} \\
+
+
+{\displaystyle \mathrm {B} (\alpha )={\frac {\prod _{i=1}^{k}\Gamma (\alpha _{i})}{\Gamma {\bigl (}\sum _{i=1}^{k}\alpha _{i}{\bigr )} \ }} \ }
+ (
+{\displaystyle \Gamma }
+ \text{is gamma function})
+$$
+
+
 - 여기서 중요한 점은 dirichlet 분포에서 샘플링 했을 때 k개의 ```continuous random variables```를 샘플을 할 수 있습니다.
 - 다른 말로 k차원을 가진 ```continuous random variables``` vector라고 생각할 수도 있습니다.
 - dirichlet 특성(probabilistic k-simplex)에 따라, 이 ```continuous random variables```은 0보다 크며, 합은 1이 됩니다(확률의 정의: $x_k$, $\sum_k x_k =1, \forall x_k \geq 0$).
