@@ -1,7 +1,7 @@
 ---
 layout: post
 comments: true
-title:  우분투에서 Tensorflow, Virtualenv, PyCharm, Jupyter 설치
+title:  우분투에서 Tensorflow, Virtualenv, PyCharm, Jupyter 설치 (2019.08.15 업데이트)
 categories: ChatBot
 
 tags:
@@ -10,32 +10,53 @@ tags:
 ---
 
 **<span style='color:DarkRed'>Tensorflow 환경 구축</span>**
-> ChatBot을 tensorflow로 구현하고자 이러한 글을 올린다. 또한 우분투에서 tensorflow, Virtualenv, PyCharm, jupyter 설치 4단계가 잘 구성된 블로그가 없어 직접 작성하게 되었다.
+> 우분투에서 tensorflow, Virtualenv, PyCharm, jupyter 설치 방법을 다룬 글입니다. 
+> 파일명이나 버전이 조금씩 다들 수 있으니 개인 파일명에 맞도록 수정만 해주시면 됩니다. 전반적인 흐름은 일반화 되어 있습니다.
+
+- ```ubuntu 16.04의 경우```: jupyter의 패스가 자동으로 잡히지 않음
+- ```ubuntu 18.04의 경우```: jupyter의 패스가 자동으로 잡힘(따라서 jupyter에 대한 아래의 내용은 생략)
 
 <br>
 
 
 **<span style='color:DarkRed'>Nvidia graphic driver</span>**
->우분투를 설치하고 나면 그래픽 드라이버를 잡고, ```CUDA-> cuDNN-> tensorflow ```순서로 잘 설치 했는데도, 그래픽 kernel문제로 tensorflow-gpu가 안잡히는 경우가 있다. 이 글에서는 ```시스템설정 >> 소프트웨어 & 업데이트 >> 추가 드라이버```에서 ```사용 NVIDA binary driver - version 384.111 출처 nvidia-384 (독점)```을 설치 하여 그래픽 카드를 잡고 CUDA 9.0설치 때 deb 대신 runfile를 사용해 CUDA 9과 nvidia-384가 충돌이 나지 않게 하였다. 
+-  ```ubuntu 16.04의 경우```: 우분투를 설치하고 나면 그래픽 드라이버를 잡고, ```CUDA-> cuDNN-> tensorflow ```순서로 잘 설치 했는데도, 그래픽 kernel문제로 tensorflow-gpu가 안잡히는 경우가 있다. 이 글에서는 ```시스템설정 >> 소프트웨어 & 업데이트 >> 추가 드라이버```에서 ```사용 NVIDA binary driver - version 430.40 출처 nvidia-430 (독점)```을 설치 하여 그래픽 카드를 잡고 CUDA 10.0설치 때 deb 대신 runfile를 사용해 CUDA 10.0과 nvidia-430.40가 충돌이 나지 않게 하였다. 
 
 <p align="center"><img width="500" height="auto" src="https://i.imgur.com/zL1niQ7.png"></p>
 
+- ```ubuntu 18.04의 경우```: terminal로 설치합니다.
+
+	```shell
+	# package loading
+	sudo apt-add-repository ppa:graphics-drivers/ppa -y
+
+	# 해당 그래픽 카드과 호환이되는 드라이버 탐색
+	sudo apt-cache search ^nvidia-driver
+
+	# 드라이버 설치(RTX 2080 ti blower의 경우, 430 version으로 선택)
+	sudo apt install nvidia-driver-430 -y
+	```
+
+
+
 <br>
 
-**<span style='color:DarkRed'>CUDA 9.0 설치</span>**
+**<span style='color:DarkRed'>CUDA 10.0 설치</span>**
 
-- https://developer.nvidia.com/cuda-downloads 에서 CUDA 9.0을 다운받아 설치
+- https://developer.nvidia.com/cuda-downloads 에서 CUDA 10.0을 다운받아 설치
+- 여기서 주의 할점은 runfile의 설치과정에서 **cuda-10.0만 설치**하고, graphic driver은 설치하지 **않는** 옵션을 줘야 runfile이 제대로 작동됨
+
 <p align="center"><img width="500" height="auto" src="https://i.imgur.com/vjpPBHE.png"></p>
 
 ```bash
 ~$ cd Downloads/
-~/Downloads/$ sudo sh cuda_9.0.176_384.81_linux.run
+~/Downloads/$ sudo sh cuda_10.0.176_384.81_linux.run
 ```
 <br>
 
-**<span style='color:DarkRed'>CUDA 9.0 환경변수</span>**
+**<span style='color:DarkRed'>CUDA 10.0 환경변수</span>**
 
-- bashrc파일을 열어 CUDA 9.0의 환경변수를 설정
+- bashrc파일을 열어 CUDA 10.0의 환경변수를 설정
 
 ```bash
 ~$ sudo gedit ~/.bashrc
@@ -44,11 +65,11 @@ tags:
 - bashrc에 붙여지는 내용
 
 ```bash
-export CUDA_HOME=/usr/local/cuda-9.0
+export CUDA_HOME=/usr/local/cuda-10.0
 
-export PATH=/usr/local/cuda-9.0/bin${PATH:+:${PATH}}
+export PATH=/usr/local/cuda-10.0/bin${PATH:+:${PATH}}
 
-export LD_LIBRARY_PATH=/usr/local/cuda-9.0/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
+export LD_LIBRARY_PATH=/usr/local/cuda-10.0/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
 ```
 
 - 변경사항 적용
@@ -64,24 +85,25 @@ export LD_LIBRARY_PATH=/usr/local/cuda-9.0/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY
 > https://developer.nvidia.com/cudnn 에서 해당 운영체제에 맞는 버전을 받으면 된다. 하지만 Tensorflow v1.8이상부터 cuDNN 7.0과 호환이 되므로 본 저자는 cuDNN 7.0을 설치하였다.
 - Tensorflow v1.3 미만 : CUDA 8, cuDNN 5.1 버전
 - Tensorflow v1.3 부터 : CUDA 8, cuDNN 6 버전 (2017.08월 기준)
-- Tensorflow v1.8 부터 : CUDA 9.0, cuDNN 7 버전 (2018.06월 기준)\\
-> 아래 그림에서 ```cuDNN v7.1.4 Library for Linux```을 다운로드한다. tensorflow version 1.8을 위해 cuda-9.0을 설정했으니, 이에 대응하는 cudnn 7.1을 받는 것이다. 
+- Tensorflow v1.8 부터 : CUDA 9.0, cuDNN 7 버전 (2018.06월 기준)
+- Tensorflow v1.13 : ```CUDA 10.1, cuDNN 7.4``` (2019.8.15기준 테스트) 
+	- cuDNN 7* 의 낮은 버전을 받을 경우, GPU session 제대로 켜질지라도 CNN 파라마터가 안 올라 가는 경우가 있으니 **7.4이상 버전**을 권장 
 
 <p align="center"><img width="700" height="auto" src="https://i.imgur.com/0lVV0Ws.png"></p>
 
 <br>
 ```bash
 ~$ cd Downloads
-~/Downloads/$ sudo tar -xzvf cudnn-9.0-linux-x64-v7.1.tgz
+~/Downloads/$ sudo tar -xzvf cudnn-10.0-linux-x64-v7.4.tgz
 ```
 
 - cuDNN 파일 이동 및 환경변수 추가
 
 ```bash
 ~/Downloads/$ cd cuda
-~/Downloads/cuda/$ sudo cp include/cudnn.h /usr/local/cuda/include
-~/Downloads/cuda/$ sudo cp lib64/libcudnn* /usr/local/cuda/lib64
-~/Downloads/cuda/$ sudo chmod a+r /usr/local/cuda/lib64/libcudnn*
+~/Downloads/cuda/$ sudo cp include/cudnn.h /usr/local/cuda-10.0/include
+~/Downloads/cuda/$ sudo cp lib64/libcudnn* /usr/local/cuda-10.0/lib64
+~/Downloads/cuda/$ sudo chmod a+r /usr/local/cuda-10.0/lib64/libcudnn*
 ```
 
 <br>
@@ -91,8 +113,8 @@ export LD_LIBRARY_PATH=/usr/local/cuda-9.0/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY
 - tensorflow로 이름을 가지는 virtualenv가 ```~/tensorflow```에 생성됨
 
 ```bash
-~$ sudo apt-get install python3-pip python3.5-dev python-virtualenv
-~$ virtualenv --system-site-packages -p python3.5 tensorflow
+~$ sudo apt-get install python3-pip python3.6-dev python-virtualenv
+~$ virtualenv --system-site-packages -p python3.6 tensorflow
 ```
 
 - virtualenv 실행
@@ -105,12 +127,12 @@ export LD_LIBRARY_PATH=/usr/local/cuda-9.0/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY
 
 **<span style='color:DarkRed'>Tensorflow 설치 </span>**
 - virtualenv 실행하여 tensorflow가 activate된 후에 설치
-- https://pypi.python.org/pypi/tensorflow-gpu/1.4.1 앞서 정의한 대로 호환이 되는 버전을 받아야 함
+- https://pypi.python.org/pypi/tensorflow-gpu/1.13.1 앞서 정의한 대로 호환이 되는 버전을 받아야 함
 
 ```bash
 (tensorflow) ~$ easy_install -U pip
 (tensorflow) ~$ cd Downloads/
-(tensorflow) ~/Downloads/$ sudo pip install tensorflow_gpu-1.4.1-cp35-cp35m-manylinux1_x86_64.whl 
+(tensorflow) ~/Downloads/$ sudo pip install tensorflow_gpu-1.13.1-cp36-cp36m-manylinux1_x86_64.whl 
 ```
 - 설치 확인
 <p align="center"><img width="500" height="auto" src="https://i.imgur.com/btiDiKH.png"></p>
@@ -146,7 +168,7 @@ export LD_LIBRARY_PATH=/usr/local/cuda-9.0/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY
 
 ```bash
 # command in Pycharm 
-(tensorflow) ~$ sudo ldconfig /usr/local/cuda-9.0/lib64
+(tensorflow) ~$ sudo ldconfig /usr/local/cuda-10.0/lib64
 ```
 
 <br>
@@ -194,7 +216,7 @@ export LD_LIBRARY_PATH=/usr/local/cuda-9.0/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY
 ```bash
 import os
 c = get_config()
-os.environ['LD_LIBRARY_PATH'] = '/usr/local/cuda-8.0/lib64:usr/local/cuda-8.0/lib64/libcudart.so.8.0'
+os.environ['LD_LIBRARY_PATH'] = '/usr/local/cuda-10.0/lib64:usr/local/cuda-10.0/lib64/libcudart.so.10.0'
 c.Spawner.env.update('LD_LIBRARY_PATH')
 ```
 
