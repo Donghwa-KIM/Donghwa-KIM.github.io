@@ -1,7 +1,7 @@
 ---
 layout: post
 comments: true
-title: argparse 사용 튜로리얼
+title: argparse 사용 튜토리얼
 categories: ssh
 tags:
 - etc.
