@@ -8,7 +8,7 @@ tags:
 ---
 
 
-> 이 글은 파이썬을 활용한 Covariacne를 구하는 과정을 설명한 글입니다. Covariacne는 크게 3가지(`full`, `diag`, `spherical`)를 방식으로 구할 수 가 있습니다. 아래의 random으로 생성된 데이터로 예를 들어 보겠습니다.
+> 이 글은 파이썬을 활용한 Covariacne를 구하는 과정을 설명한 글입니다. 데이터의 variacne는 크게 3가지(`full`, `diag`, `spherical`)으로 방식으로 구할 수 가 있습니다. 아래의 random으로 생성된 데이터로 예를 들어 보겠습니다.
 
 ```python
 np.random.seed(0)
