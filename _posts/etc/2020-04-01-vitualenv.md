@@ -74,7 +74,7 @@ mkdir ~/.virtualenvs
 <br>
 
 - vim을 활용하여 `bash_profile`에 아래 코드(text) 삽입
-	- `VIRTUALENVWRAPPER_PYTHON`: 시스템 파이썬 경로, 해당버전으로 가상환경이 구성됨
+	- `VIRTUALENVWRAPPER_PYTHON`: 시스템 파이썬 경로
 	- `VITRUALENVWRAPPER_VIRTUALENV`: 새로 생성된 가상환경의 경로
 
 ```
