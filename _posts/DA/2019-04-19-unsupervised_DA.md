@@ -1,7 +1,7 @@
 ---
 layout: post
 comments: true
-title: Unsupervised Domain Adaptation by Backpropagation-(1)
+title: Unsupervised Domain Adaptation by Backpropagation
 categories: Domain Adaptation
 
 tags:
