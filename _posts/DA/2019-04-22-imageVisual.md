@@ -1,7 +1,7 @@
 ---
 layout: post
 comments: true
-title: domain adaptation & 이미지 텐서보드(image tensorboard) 시각화
+title: Domain Adaptation & 이미지 텐서보드(image tensorboard) 시각화
 categories: Domain Adaptation
 
 tags:
