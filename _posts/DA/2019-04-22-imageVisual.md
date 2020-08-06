@@ -1,7 +1,7 @@
 ---
 layout: post
 comments: true
-title: Feature Map과 Image를 활용한 텐서보드 시각화-(3)
+title: domain adaptation & 이미지 텐서보드(image tensorboard) 시각화
 categories: Domain Adaptation
 
 tags:
