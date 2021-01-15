@@ -12,13 +12,13 @@ tags:
 
 **1) Material Theme: 코드 테마 변경 extension입니다.**
 
-<p align="center"><img width="600" height="auto" src="../assets/figure/material_theme.png"></p>
+<p align="center"><img width="600" height="auto" src="../assets/figure/material_theme.PNG"></p>
 
 <br>
 
 **2) Material Icon Theme: 파일 확장자 아이콘 변경 extension입니다.**
 
-<p align="center"><img width="600" height="auto" src="../assets/figure/material_icon_theme.png"></p>
+<p align="center"><img width="600" height="auto" src="../assets/figure/material_icon_theme.PNG"></p>
 
 - 예시)
 
@@ -29,7 +29,7 @@ tags:
 **3) Settings Sync: extension 설정 저장/불러오기 입니다.**
   - ssh연결을 사용해서 하시는 분들에 유용한 tool입니다.
 
-<p align="center"><img width="600" height="auto" src="../assets/figure/sync.png"></p>
+<p align="center"><img width="600" height="auto" src="../assets/figure/sync.PNG"></p>
 
 <br>
 
