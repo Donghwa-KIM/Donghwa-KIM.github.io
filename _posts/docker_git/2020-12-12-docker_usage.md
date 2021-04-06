@@ -47,7 +47,7 @@ c27fb22dc3ba        fashion:latest      "/bin/bash"         7 weeks ago         
 - `-v`: shared folder {host}:{docker}
 - `--name`: container name
 - `fashion:latest`: used image
-- container와 vscode연결하는 방법 [link](https://curioso365.tistory.com/100)
+- container와 vscode연결하는 방법 ([link](https://curioso365.tistory.com/100))
 
 ```
 docker run -it -p 8282:8282 --shm-size=8gb --env="DISPLAY" -v /home/korea/fashion-recommendation/dataset/:/home/appuser/fashion_repo/dataset -v /home/korea/fashion-recommendation/model:/home/appuser/fashion_repo/model -v /home/korea/fashion-recommendation/src:/home/appuser/fashion_repo/src -v /home/korea/fashion-recommendation/script:/home/appuser/fashion_repo/script --name=seg_rec fashion:latest
