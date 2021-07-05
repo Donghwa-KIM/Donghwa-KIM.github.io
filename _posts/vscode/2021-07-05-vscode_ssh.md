@@ -44,7 +44,7 @@ ssh-keygen -t rsa
 
 **3) vscode를 이용한 원격제어**
 
-- `ctrl`+`shift`+`p`를 통해 extension을 실행시킨뒤 `ssh`를 입력해서 `config`파일을 열어준 뒤, `HostName`, `IdentityFile`를 입력해준다.
+- `ctrl`+`shift`+`p`를 통해 extension을 실행시킨뒤 `ssh`를 입력해서 `config`파일을 열어준 뒤, `HostName`, `IdentityFile`를 입력해줍니다.
     - `HostName`은 Host PC의 ip주소
     - `IdentityFile` Host PC에 존재하는 local pc 인증키 path
 
@@ -56,8 +56,8 @@ ssh-keygen -t rsa
 
 **4) Docker container 연결**
 
-- 사전에 Local pc에 docker가 설치되어 있어야 함
-- remote docker extension 설치
+- 사전에 Local pc에 docker가 설치되어 있어야 합니다.
+- remote docker extension 설치합니다.
 - `ctrl`+`shift`+`p`를 통해 extension을 실행시킨뒤, `attach to running container` 실행
 
 <p align="center"><img width="300" height="auto" src="../assets/figure/docker_ssh/docker.png"></p>
