@@ -54,10 +54,19 @@ ssh-keygen -t rsa
 
 
 
-**4) Docker container 연결**
+**4) Docker container 연결설정**
 
 - 사전에 Local pc에 docker가 설치되어 있어야 합니다.
-- remote docker extension 설치합니다.
+- vscode의 ssh remote extension 설치되어 있어야 합니다.
+- Preference setting (json)에 `docker.host`(원격하고자하는 PC의 ip주소)를 기입합니다.
+
+<p align="center"><img width="600" height="auto" src="../assets/figure/docker_ssh/option.png"></p>
+
+<br>
+
+
+**5) Docker container 연결실행**
+
 - `ctrl`+`shift`+`p`를 통해 extension을 실행시킨뒤, `attach to running container` 실행
 
 <p align="center"><img width="300" height="auto" src="../assets/figure/docker_ssh/docker.png"></p>
