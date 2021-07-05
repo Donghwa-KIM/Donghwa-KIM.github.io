@@ -11,7 +11,7 @@ tags:
 
 **<span style='color:DarkRed'>Docker container 원격접속</span>**
 
-데이터분석 프로젝트가 Docker 환경에서 작업을 할 때가 많습니다. 이때 원격으로 container에 접속해 작업을 할때가 있는데요. 이 부분을 ssh keygen을 이용해서 접속하는 방법과 옵션설정을 기록하려고 합니다. 먼저 아래의 같이 `host`를 docker container가 설치되어 있는 환경이라하고, `local`을 접속하려는 노트북이라고 합시다. 
+데이터분석 프로젝트를 Docker 환경에서 작업을 할 때가 많습니다. 이때 원격으로 container에 접속해 작업을 할때가 있는데요. 이 부분을 ssh keygen을 이용해서 접속하는 방법과 옵션설정을 기록하려고 합니다. 먼저 아래의 같이 `host`를 docker container가 설치되어 있는 환경이라하고, `local`을 접속하려는 노트북이라고 합시다. 
 
 **프레임 워크**
 
