@@ -320,6 +320,7 @@ sizes = [len(s) for s in sources]
             be less than N or a multiple of N (default: 1).
     - `cfg.dataset.required_batch_size_multiple` = 8 
     - `cpyhon`의 형태를 가진 `data_utils_fast.pxy`로 batch sampler 생성
+
 ```
 batch_sampler = dataset.batch_by_size(
     array([1, 5, 3, 7, 6, 9, 0, 4, 2, 8]),
@@ -329,17 +330,20 @@ batch_sampler = dataset.batch_by_size(
 
 )
 ```
+
 ```
 batch_sampler
 [array([1, 5, 3, 7, 6... 9, 0, 4]), array([2, 8])]
 ```
 
 - `self.max_sample_size=250000`보다 작거나 가장 작은 샘플size를 기준을 최대 target길이로 정함 (pad 없이하는 것이 default)
+
 ```
 target_size = min(min(sizes), self.max_sample_size)
 ```
 
 - 가장 길이가 짧은 것을 기준으로 wav가 cropping 되게 같은 길이로 맞춰줌
+
 ```
 collated_sources.shape
 torch.Size([8, 101168])
