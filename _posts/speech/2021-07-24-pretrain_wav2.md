@@ -747,7 +747,7 @@ result["prob_perplexity"] = torch.exp(
 ```
 
 - `F.gumbel_softmax`는 feature 의 temperature scaling한 후 가장 높은 logit에 대하여 onehot vecotor 처리
-- `hard_x`와 동일한 과정이지만, temperature scaling를 사용하기 위해  `F.gumbel_softmax`를 사용한것 같음
+- `hard_x`와 동일한 과정이지만, temperature scaling를 사용하고, argmax가 미분 불가능점을 고려해 `F.gumbel_softmax`를 사용한 것 같음
 ```python
 if self.training:
     x = F.gumbel_softmax(x.float(), tau=self.curr_temp, hard=True).type_as(x)
@@ -960,7 +960,12 @@ for p, coef in zip(extra_losses, self.loss_weights):
 - 최종 3개의 loss가 반영됨
     - cross_entropy
     - prob_perplexity
-    - feature_pen
+    - feature_pen (conv layer 후, 임베딩 된 벡터의 제곱 합)
+
+```python
+# features: torch.Size([8, 315, 512])
+features_pen = features.float().pow(2).mean()
+```
 
 ```python
 logging_output = {
