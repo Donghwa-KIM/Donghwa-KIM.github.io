@@ -961,9 +961,9 @@ for p, coef in zip(extra_losses, self.loss_weights):
         losses.append(p)
 ```
 - 최종 3개의 loss가 반영됨
-    - cross_entropy
-    - prob_perplexity
-    - feature_pen (conv layer 후, 임베딩 된 벡터의 제곱 합)
+    - minimize cross_entropy
+    - maximize prob_perplexity
+    - minimize feature_pen (conv layer 후, 임베딩 된 벡터의 제곱 합)
 
 ```python
 # features: torch.Size([8, 315, 512])
