@@ -746,8 +746,8 @@ result["prob_perplexity"] = torch.exp(
 ).sum()
 ```
 
-- `F.gumbel_softma`는 feature 의 temperature scaling한 후 가장 높은 logit에 대하여 onehot vecotor 처리
-- `hard_x`와 동일한 과정이지만, temperature scaling를 사용하기 위해  `F.gumbel_softma`를 사용한것 같음
+- `F.gumbel_softmax`는 feature 의 temperature scaling한 후 가장 높은 logit에 대하여 onehot vecotor 처리
+- `hard_x`와 동일한 과정이지만, temperature scaling를 사용하기 위해  `F.gumbel_softmax`를 사용한것 같음
 ```python
 if self.training:
     x = F.gumbel_softmax(x.float(), tau=self.curr_temp, hard=True).type_as(x)
