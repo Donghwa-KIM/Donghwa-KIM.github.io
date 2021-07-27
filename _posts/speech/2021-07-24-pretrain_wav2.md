@@ -775,11 +775,13 @@ x = x.view(bsz, tsz, -1) # torch.Size([8(bz), 141(seq), 256(n_group*var_dim)])
 ```
 
 - 위 과정에서 산출된 값이 `q["x"]`
+
 ```
 q = self.quantizer(y, produce_targets=False)
 
 q["x"].shape
 torch.Size([8, 141, 256])
+```
 
 - 추가로 linear projection 수행
 
