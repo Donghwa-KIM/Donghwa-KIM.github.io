@@ -733,7 +733,10 @@ result["code_perplexity"] = torch.exp(
 
 
 2. `prob_perplexity`
-- feature map $\mathbf{h}$를 feature dim에 대해서 softmax를 취한 후 batch에 대해서 평균
+- feature map $\mathbf{h}$를 feature dim에 대해서 softmax를 취한 후 `batch_size*sequence`에 대해서 평균
+- 다양한 Quantization이 되도록 perplexity를 최대화하는 것이 목적
+- Batch statics: 각 샘플, 타임 별로 개별 codebook의 평균 softmax를 구함
+
 $$ p = \text{softmax } \textbf{h}$$
 $$$$
 
